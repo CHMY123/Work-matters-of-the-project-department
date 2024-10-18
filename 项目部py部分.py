@@ -24,16 +24,25 @@ def read_students():
                 else:
                     print(f"错误：'{line.strip()}' 不符合格式！")
     except FileNotFoundError:
-        print("找不到目标文件，将为您创建一个新文件")
+        print("找不到目标文件，将为您创建一个新文件。请写入数据后，重启程序")
         init_students()
         exit()
     return students
 
-message = input("是否开始读取文件（1是，2否）：")
-if message == '1':
-    students = read_students()
-else:
-    exit()
+while True:
+    message = input("是否开始读取文件（1是，2否）：")
+    if message == '1':
+        students = read_students()
+        break
+    elif message == '是' or message == '否':
+        print("请输入数字！")
+        continue
+    elif message == '2':
+        print("已经退出程序！")
+        exit()
+    else:
+        print("无效输入！")
+        continue
 
 # 统计所有学生的总人数
 def count_students(students):
