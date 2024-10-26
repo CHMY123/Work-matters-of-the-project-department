@@ -7,7 +7,7 @@ def read_students():
     # 从文件中读取学生信息，并返回一个学生列表
     students = []
     try:
-        with open('students.txt', 'r') as txt:
+        with open('students.txt', 'r', encoding='UTF-8') as txt:
             # 以只读模式打开文件
             for line in txt:
                 parts = line.strip().split('，')
